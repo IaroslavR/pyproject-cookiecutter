@@ -25,9 +25,9 @@ safety:  ## Check installed dependencies for known security vulnerabilities
 	poetry run safety check --full-report --file=requirements.txt
 	rm requirements.txt
 
-publish-test: test build ## Publish package to the test.pypi.org
+publish-test: tests build ## Publish package to the test.pypi.org
 	poetry config repositories.testpypi https://test.pypi.org/legacy/
 	poetry publish -r testpypi
 
-publish: test build  ## Publish package
+publish: tests build  ## Publish package
 	poetry publish

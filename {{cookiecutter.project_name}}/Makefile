@@ -14,13 +14,16 @@ build:  ## Build package
 
 test:  ## Run tests
 	poetry run pytest
+
+
+coverage:  ## Run tests with coverage
+	poetry run coverage run -m pytest
+	poetry run coverage report
+
+safety:  ## Check installed dependencies for known security vulnerabilities
 	poetry export --format=requirements.txt --without-hashes --output=requirements.txt
 	poetry run safety check --full-report --file=requirements.txt
 	rm requirements.txt
-
-coverage:
-	poetry run coverage run -m pytest
-	poetry run coverage report
 
 publish-test: test build ## Publish package to the test.pypi.org
 	poetry config repositories.testpypi https://test.pypi.org/legacy/

@@ -1,4 +1,4 @@
-"""Package-wide test fixtures."""
+"""Package-wide test fixtures and pytest hooks"""
 
 from typing import List, Optional
 
